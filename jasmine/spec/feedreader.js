@@ -72,6 +72,10 @@ $(function() {
          * the CSS to determine how we're performing the
          * hiding/showing of the menu element.
          */
+        it('is hidden by default', function() {
+            // Check if the `body` contains the `menu-hidden` class
+            expect(document.body.classList.contains("menu-hidden")).toBe(true);
+        });
 
     });
 
