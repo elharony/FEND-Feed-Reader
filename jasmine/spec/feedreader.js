@@ -129,9 +129,28 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
+        it('new content is loaded', function() {
+
+            let currentContent;
+
+            // Async
+            beforeEach(function(done) {
+                loadFeed(0, function() {
+
+                    // Store the current content (old)
+                    currentContent = document.querySelector(".feed").innerHTML;
+
+                    // Load another Feed
+                    loadFeed(1, done);
+
+                });
+            });
+            
+            // Compare the NEW feed's container with the OLD one
+            expect(document.querySelector(".feed").innerHTML).not.toBe(currentContent);
+
+        });
         
-
     });
-
         
 }());
