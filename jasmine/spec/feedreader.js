@@ -101,7 +101,9 @@ $(function() {
         // Take 2500ms to load the default feed [Async]
         beforeEach(function(done) {
             loadFeed(0);
-            done();
+            setTimeout(function() {
+                done();
+            }, 2500);
         });
 
         // Make sure that it returns ONE feed at least
@@ -119,7 +121,7 @@ $(function() {
          * by the loadFeed function that the content actually changes.
          * Remember, loadFeed() is asynchronous.
          */
-
+        
 
     });
 
