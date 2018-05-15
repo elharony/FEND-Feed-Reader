@@ -82,6 +82,17 @@ $(function() {
          * should have two expectations: does the menu display when
          * clicked and does it hide when clicked again.
          */
+        it('show/hide based on click', function() {
+
+            const menuBtn = document.querySelector(".menu-icon-link");
+            const clickEvent = new CustomEvent("click");
+
+            menuBtn.dispatchEvent(clickEvent); // Click
+            expect(document.body.classList.toggle("menu-hidden")).toBe(true); // Show Menu
+            menuBtn.dispatchEvent(clickEvent); // Click Again
+            expect(document.body.classList.toggle("menu-hidden")).toBe(true); // Hide Menu
+
+        });
 
     });
 
